@@ -1,18 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { store } from './app/store';
-import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
+import { Router } from "router";
+import { worker } from "mock/browser";
+import * as serviceWorker from "./serviceWorker";
+
+// Start the mocking conditionally.
+if (process.env.NODE_ENV === "development") {
+  worker.start();
+}
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
