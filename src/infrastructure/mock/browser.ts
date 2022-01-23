@@ -1,4 +1,4 @@
 import { setupWorker } from "msw";
-import { handlers } from "mock/handler";
+import { handlers } from "infrastructure/mock/handler";
 
 export const worker = setupWorker(...handlers);

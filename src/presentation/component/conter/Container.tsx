@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useAppSelector, useAppDispatch } from "store/store";
+import { useAppSelector, useAppDispatch } from "application/store/store";
 import {
   increment,
   decrement,
@@ -8,7 +8,7 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
-} from "store/slice/counterSlice";
+} from "application/store/slice/counterSlice";
 
 import Presenter from "./Presenter";
 export type ContainerProps = {};

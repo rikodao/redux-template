@@ -3,7 +3,7 @@ import counterReducer, {
   decrement,
   incrementByAmount,
 } from "../../store/slice/counterSlice";
-import { CounterState } from "model/counter/counterModel";
+import { CounterState } from "application/model/counter/counterModel";
 describe("counter reducer", () => {
   const initialState: CounterState = {
     value: 3,

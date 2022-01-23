@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "store/store";
+import { RootState, AppThunk } from "application/store/store";
 import { fetchCountFuncImpl } from "resolver";
-import counter, { CounterState } from "model/counter/counterModel";
+import counter, { CounterState } from "application/model/counter/counterModel";
 
 export interface IfetchCountFunc {
   (amount: number): Promise<number>;

@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { store } from "./store/store";
+import { store } from "./application/store/store";
 import { Provider } from "react-redux";
 import { Router } from "router";
-import { worker } from "mock/browser";
+import { worker } from "infrastructure/mock/browser";
 import * as serviceWorker from "./serviceWorker";
 
 // Start the mocking conditionally.
