@@ -1,6 +1,8 @@
 import styles from "./Counter.module.css";
 import { ContainerProps } from "./Container";
 import { Dispatch, SetStateAction } from "react";
+import AppButton from "presentation/parts/button/AppButton";
+
 type Props = {
   incrementValue: number;
   count: number;
@@ -40,24 +42,18 @@ const Presenter: React.FC<Props> = (props) => {
           value={props.incrementAmount}
           onChange={(e) => props.setIncrementAmount(e.target.value)}
         />
-        <button
-          className={styles.button}
+        <AppButton
+          buttonStyle="primary"
           onClick={() => props.incrementByAmount()}
         >
           Add Amount
-        </button>
-        <button
-          className={styles.asyncButton}
-          onClick={() => props.incrementAsync()}
-        >
+        </AppButton>
+        <AppButton buttonStyle="async" onClick={() => props.incrementAsync()}>
           Add Async
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => props.incrementIfOdd()}
-        >
+        </AppButton>
+        <AppButton buttonStyle="primary" onClick={() => props.incrementIfOdd()}>
           Add If Odd
-        </button>
+        </AppButton>
       </div>
     </div>
   );
