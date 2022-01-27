@@ -10,7 +10,7 @@ import {
   selectCount,
 } from "application/store/slice/counterSlice";
 
-import Presenter from "./Presenter";
+import Presenter, { Props } from "./Presenter";
 export type ContainerProps = {};
 
 const Counter: React.FC<ContainerProps> = (props) => {
@@ -21,19 +21,19 @@ const Counter: React.FC<ContainerProps> = (props) => {
 
   const incrementValue = Number(incrementAmount) || 0;
 
-  return (
-    <Presenter
-      {...props}
-      count={count}
-      incrementValue={incrementValue}
-      incrementAmount={incrementAmount}
-      setIncrementAmount={setIncrementAmount}
-      increment={dispatch.bind(this, increment())}
-      decrement={dispatch.bind(this, decrement())}
-      incrementByAmount={dispatch.bind(this, incrementByAmount(incrementValue))}
-      incrementAsync={dispatch.bind(this, incrementAsync(incrementValue))}
-      incrementIfOdd={dispatch.bind(this, incrementIfOdd(incrementValue))}
-    />
-  );
+  const _props: Props = {
+    ...props,
+    count: count,
+    incrementValue: incrementValue,
+    incrementAmount: incrementAmount,
+    setIncrementAmount: setIncrementAmount,
+    increment: () => dispatch(increment()),
+    decrement: () => dispatch(decrement()),
+    incrementByAmount: () => dispatch(incrementByAmount(incrementValue)),
+    incrementAsync: () => dispatch(incrementAsync(incrementValue)),
+    incrementIfOdd: () => dispatch(incrementIfOdd(incrementValue)),
+  };
+
+  return <Presenter {..._props} />;
 };
 export default Counter;

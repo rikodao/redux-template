@@ -3,7 +3,7 @@ import { ContainerProps } from "./Container";
 import { Dispatch, SetStateAction } from "react";
 import AppButton from "presentation/parts/button/AppButton";
 
-type Props = {
+export type Props = {
   incrementValue: number;
   count: number;
   incrementAmount: string;
